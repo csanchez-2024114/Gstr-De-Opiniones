@@ -8,6 +8,7 @@ import rateLimit from 'express-rate-limit';
 import { dbConnection } from './db.configuration.js';
 import authRoutes from '../src/auth/auth.routes.js';
 import publicacionRoutes from '../src/Publicacion/publicacion.routes.js';
+import comentarioRoutes from '../src/Comentario/comentario.routes.js';
 import { errorHandler } from '../middlewares/handle-errors.js';
 
 const app = express();
@@ -33,6 +34,7 @@ const configs = (app) => {
 const routes = (app) => {
     app.use('/opinionManager/v1/auth', authRoutes);
     app.use('/opinionManager/v1/publications', publicacionRoutes);
+    app.use('/opinionManager/v1/comments', comentarioRoutes);
 };
 
 export const initServer = async () => {
